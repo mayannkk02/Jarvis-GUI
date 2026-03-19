@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 2%;
+    --foreground: 200 20% 85%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 200 20% 85%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 200 20% 85%;
+
+    --primary: 190 90% 50%;
+    --primary-foreground: 222 47% 2%;
+
+    --secondary: 222 47% 10%;
+    --secondary-foreground: 200 20% 85%;
+
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 50%;
+
+    --accent: 210 100% 70%;
+    --accent-foreground: 222 47% 2%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 190 90% 50%;
+    --input: 222 30% 15%;
+    --ring: 190 90% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 47% 4%;
+    --sidebar-foreground: 200 20% 75%;
+    --sidebar-primary: 190 90% 50%;
+    --sidebar-primary-foreground: 222 47% 2%;
+    --sidebar-accent: 222 47% 8%;
+    --sidebar-accent-foreground: 200 20% 85%;
+    --sidebar-border: 190 90% 50%;
+    --sidebar-ring: 190 90% 50%;
+
+    /* Custom tokens */
+    --surface: 222 47% 6%;
+    --glow-primary: 190 90% 50%;
+    --glow-accent: 210 100% 70%;
+    --cyan-core: 190 90% 50%;
+    --deep-navy: 222 47% 2%;
+    --success: 160 84% 39%;
+    --success-foreground: 160 84% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/10;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Hide scrollbars */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/40 backdrop-blur-xl border border-primary/10 rounded-lg;
+  }
+
+  .glass-panel-hover {
+    @apply glass-panel transition-all duration-300;
+  }
+  .glass-panel-hover:hover {
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.05);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.05), 0 10px 30px -10px rgba(0,0,0,0.5);
+  }
+
+  .text-mono {
+    font-family: 'Geist Mono', 'SF Mono', monospace;
+  }
+
+  .text-label {
+    @apply text-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2);
+  }
+
+  .panel-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent;
+  }
+}
